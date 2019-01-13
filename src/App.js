@@ -45,11 +45,8 @@ class App extends Component {
 
     /*
     If there was a real REST API behind it, this method would be called
-    this.getIdeas().then({
+    this.getIdeas();
 
-
-
-    });
     */
     let dropdown = document.querySelector('.dropdown');
     dropdown.addEventListener('click', function(event) {
@@ -72,10 +69,11 @@ class App extends Component {
     axios.get(`my-api/ideas`)
       .then(res => {
         const ideas = res.data;
+        // this can be set here or later, in componentDidMount
         this.setState({ ideas: ideas });
       })
-
-
+      .catch(error => { // error handling goes here
+      })
   }
 
   updateIdea(idea){
@@ -84,6 +82,8 @@ class App extends Component {
         // refreshes ideas
         this.getIdeas()
       })
+      .catch(error => { // error handling goes here
+      })
   }
 
   deleteIdea(id){
@@ -91,6 +91,8 @@ class App extends Component {
       .then(res => {
         // refreshes ideas
         this.getIdeas()
+      })
+      .catch(error => { // error handling goes here
       })
   }
 
@@ -105,6 +107,8 @@ class App extends Component {
         let newIdea = {...res.data, ...otherFields};
         let ideas = [...this.state.ideas, newIdea];
         this.setState({ ideas: ideas });
+      })
+      .catch(error => { // error handling goes here
       })
   }
 
