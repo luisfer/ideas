@@ -4,12 +4,18 @@
 Consider an idea/memo board where you can create an idea, edit existing ideas and delete old ideas.
 Each idea should have a unique id (read-only), a creation date (read-only), a title (editable), and a
 body (editable), which can contain a maximum of 140 characters.
+
 Assume that there is a backend REST service with the following endpoints:
+
 • GET ideas/ -> [{“id”: “:id”, “created_date”: “:created_date”, “title”: “:title”, “body”: “:body”},
 {}, …]
+
 • GET ideas/new -> { “id”: “:id”, “created_date”: “:created_date” }
+
 • POST idea/update { “id”: “:id”, “title”: “:title”, “body”: “:body” }
+
 • POST idea/delete { “id”: “:id” }
+
 Assume that the back-end makes of use of standard HTTP success and error codes.
 
 ### Required
